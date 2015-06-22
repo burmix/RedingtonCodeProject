@@ -1,7 +1,11 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<h3>@ViewBag.Title</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>This application was created using base MVC.NET project, (with no authentication) and with Unit Tests project included.</p>
+<p>Probability calculation was made using Javascipt, so all calculations are made on client side.</p>
+<p>After each calculation, SaveCalculationResults function is being called what triggers HomeController function with the same name. Both probability values are being stored as well as function, result and name built from date and time.</p>
+
+<h3>Unit tests</h3>
+<p>Unit tests were splitted to Javascript unit tests (using qunit framework) and for basic c# unit tests (using separate unit tests project). Qunit tests can be triggered from main page, going to "Unit tests" page.</p>
+
+<h3>Design</h3>
+<p>Application is using bootstrap to make sure that application looks good at all devices (responsive design). Additionally for design purposes, <a href="https://fezvrasta.github.io/bootstrap-material-design/">bootstrap material design</a> elements were used. Material design was originally developed by Google.</p>

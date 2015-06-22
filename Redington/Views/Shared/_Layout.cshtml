@@ -25,25 +25,28 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Unit tests", "Index", "UnitTests")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div class="container">
+        <div class="well site-content">
+            <div class="container">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Redington project by Tomasz Burny</p>
+                </footer>
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/material")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/qunit")
     @RenderSection("scripts", required: false)
-    <script>
-        $.material.init();
-    </script>
 </body>
 </html>

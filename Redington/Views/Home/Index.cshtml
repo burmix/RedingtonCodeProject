@@ -5,73 +5,70 @@
 @{
     ViewBag.Title = "Probability calculation";
 }
-<div class="well site-content">
-    <div class="container">
-        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "calculationForm", name = "calculationForm" }))
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-horizontal">
-                @Html.ValidationSummary(true)
-                <div class="form-group">
-                    <div class="row">
 
-                        <div class="col-xs-12 col-md-4">
-                            <div class="probabilityOptionLabel ">
-                                @Html.Label("Probability function")
-                            </div>
-                            <div class="probabilityOptionDropdown ">
-                                @Html.DropDownListFor(model => model.ProbabilityCalculationMode,
+@using (Html.BeginForm("", "", FormMethod.Post, new { id = "calculationForm", name = "calculationForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-4">
+                    <div class="probabilityOptionLabel ">
+                        @Html.Label("Probability function")
+                    </div>
+                    <div class="probabilityOptionDropdown ">
+                        @Html.DropDownListFor(model => model.ProbabilityCalculationMode,
                                         new List<SelectListItem> {
                                             new SelectListItem { Value = "0" , Text = "P(A)P(B) (Independent events)" },
                                             new SelectListItem { Value = "1" , Text = "P(A) + P(B) - P(A)P(B) (Not mutually exclusive events)" }
                                         })
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-md-4">
-                            <div class="probabilityLabel col-xs-12">
-                                @Html.Label("P(A)", new { @class = "col-xs-12 col-md-4" })
-                            </div>
-                            <div class="probabilityTextBox col-xs-12">
-                                @Html.TextBoxFor(m => m.ProbabilityValueFirst, new { @class = "col-xs-12 form-control floating-label", @placeholder = "probability value", @data_hint = "A valid email should contain an @ symbol" })
-                            </div>
-                            <div class="probabilityError col-xs-12 ">
-                                @Html.ValidationMessageFor(m => m.ProbabilityValueFirst)
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-md-4">
-                            <div class="probabilityLabel col-xs-12">
-                                @Html.Label("P(B)", new { @class = "col-xs-12 " })
-                            </div>
-                            <div class="probabilityTextBox col-xs-12">
-                                @Html.TextBoxFor(m => m.ProbabilityValueSecond, new { @class = "col-xs-12 form-control floating-label", @placeholder = "probability value" })
-                            </div>
-                            <div class="probabilityError col-xs-12">
-                                @Html.ValidationMessageFor(m => m.ProbabilityValueSecond)
-                            </div>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="btnSubmit col-xs-12 col-md-6">
-                            <button type="button" id="btnSubmit" onclick="ValidateForm();" class="btn btn-primary">
-                                Calculate
-                            </button>
-                            <button type="button" id="btnClear" onclick="ClearForm();" class="btn btn-info">
-                                Clear
-                            </button>
-                        </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4">
+                    <div class="probabilityLabel col-xs-12">
+                        @Html.Label("P(A)", new { @class = "col-xs-12 col-md-4" })
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-4">
-                            <div class="form-group">
-                                @Html.Label("Calculation result:", new { @class = "col-xs-12 col-md-6" })
-                                <div class="labelResult col-xs-12 col-md-6"></div>
-                            </div>
-                        </div>
+                    <div class="probabilityTextBox col-xs-12">
+                        @Html.TextBoxFor(m => m.ProbabilityValueFirst, new { @class = "col-xs-12 form-control floating-label", @placeholder = "probability value", @data_hint = "A valid email should contain an @ symbol" })
+                    </div>
+                    <div class="probabilityError col-xs-12 ">
+                        @Html.ValidationMessageFor(m => m.ProbabilityValueFirst)
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4">
+                    <div class="probabilityLabel col-xs-12">
+                        @Html.Label("P(B)", new { @class = "col-xs-12 " })
+                    </div>
+                    <div class="probabilityTextBox col-xs-12">
+                        @Html.TextBoxFor(m => m.ProbabilityValueSecond, new { @class = "col-xs-12 form-control floating-label", @placeholder = "probability value" })
+                    </div>
+                    <div class="probabilityError col-xs-12">
+                        @Html.ValidationMessageFor(m => m.ProbabilityValueSecond)
                     </div>
                 </div>
             </div>
-        }
+            <div class="row">
+                <div class="btnSubmit col-xs-12 col-md-6">
+                    <button type="button" id="btnSubmit" onclick="ValidateForm();" class="btn btn-primary">
+                        Calculate
+                    </button>
+                    <button type="button" id="btnClear" onclick="ClearForm();" class="btn btn-info">
+                        Clear
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        @Html.Label("Calculation result:", new { @class = "col-xs-12 col-md-6" })
+                        <div class="labelResult col-xs-12 col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+}

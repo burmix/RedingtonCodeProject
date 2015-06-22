@@ -27,13 +27,18 @@ namespace Redington
                       "~/Scripts/material.js",
                       "~/Scripts/ripples.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/qunit").Include(
+                      "~/Scripts/qunit-1.18.0.js",
+                      "~/Scripts/unitTests.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/css/material.css",
                       "~/Content/css/material-fullpalette.css",
                       "~/Content/css/ripples.css",
                       "~/Content/css/roboto.css",
-                      "~/Content/Site.css"));
+                      "~/Content/Site.css",
+                      "~/Content/qunit-1.18.0.css"));
         }
     }
 }
